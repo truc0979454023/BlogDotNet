@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Api", "src\Blog.Api\Blog.Api.csproj", "{8AF9BAB4-7C37-48D5-96A2-47289E60F424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core", "src\Blog.Core\Blog.Core.csproj", "{C1006A55-278F-4D3C-BE1D-888972017B23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Data", "Blog.Data\Blog.Data.csproj", "{BDC74307-7236-4DFF-9DC2-B090F59139D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AF9BAB4-7C37-48D5-96A2-47289E60F424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF9BAB4-7C37-48D5-96A2-47289E60F424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF9BAB4-7C37-48D5-96A2-47289E60F424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF9BAB4-7C37-48D5-96A2-47289E60F424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1006A55-278F-4D3C-BE1D-888972017B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1006A55-278F-4D3C-BE1D-888972017B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1006A55-278F-4D3C-BE1D-888972017B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1006A55-278F-4D3C-BE1D-888972017B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC74307-7236-4DFF-9DC2-B090F59139D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC74307-7236-4DFF-9DC2-B090F59139D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC74307-7236-4DFF-9DC2-B090F59139D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC74307-7236-4DFF-9DC2-B090F59139D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95822194-8AB9-4946-A104-058791A4A0B9}
+	EndGlobalSection
+EndGlobal
