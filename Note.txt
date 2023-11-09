@@ -1,0 +1,8 @@
+Phím tắt: ctrl + m+ space : để xóa các using không sử dụng
+ 
+1.Vào Blog.Core để tạo các Table bằng package entityFrame và identity(Dùng để tạo các table phục vụ phân quyền) 
+ - Folder Content khai báo các class model dùng entity để tạo table 
+ - Folder Identity khai báo các class model dùng entity và identity phục vụ phân quyền user 
+2. Vào Blog.Data
+ - Add project reference blog.core vào
+ - BlogCOntext để tạo các proxy kết nối tới các bảng dữ liệu
