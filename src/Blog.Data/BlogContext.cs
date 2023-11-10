@@ -29,7 +29,7 @@ namespace Blog.Data
             builder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => new { x.UserId });
         }
 
-        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default) //override saveChange : lưu lại các giá trị được tạo hoặc cập nhật
+    /*    public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default) //override saveChange : lưu lại các giá trị được tạo hoặc cập nhật
         {
             var entries = ChangeTracker.Entries().Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
             foreach (var entityEntry in entries)
@@ -48,6 +48,6 @@ namespace Blog.Data
             }
 
             return base.SaveChangesAsync(cancellationToken);
-        }
+        }*/
     }
 }
