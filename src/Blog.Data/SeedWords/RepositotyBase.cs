@@ -10,9 +10,12 @@ namespace Blog.Data.SeedWords
 
         private readonly DbSet<T> _dbSet;
 
+        protected readonly BlogContext _context;
+
         public RepositotyBase(BlogContext context)
         {
             _dbSet = context.Set<T>();
+            _context = context;
         }
 
         public void Add(T entity)

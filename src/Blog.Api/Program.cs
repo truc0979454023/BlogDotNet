@@ -1,20 +1,20 @@
 ﻿using Blog.Api;
-using Blog.Core.Domain.Identity;
 using Blog.Core;
+using Blog.Core.Domain.Identity;
+using Blog.Core.SeedWords;
+using Blog.Data.Repositories;
+using Blog.Data.SeedWords;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Blog.Data.SeedWords;
-using Blog.Core.SeedWords;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");//Connect databasse
 
 //Config DB Context and ASP.net core identity
-builder.Services.AddDbContext<BlogContext>(options=>options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<BlogContext>(options => options.UseSqlServer(connectionString));
 
-
-builder.Services.AddIdentity<AppUser,AppRole>(options=>options.SignIn.RequireConfirmedAccount=false)
+builder.Services.AddIdentity<AppUser, AppRole>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<BlogContext>();
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -42,6 +42,22 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddScoped(typeof(IReadOnlyDictionary<,>), typeof(RepositotyBase<,>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+//Business services and repositories
+var services = typeof(PostRepository).Assembly.GetTypes()
+    .Where(x => x.GetInterfaces().Any(i => i.Name == typeof(IRepository<,>).Name)
+    && !x.IsAbstract && x.IsClass && !x.IsGenericType);
+
+foreach (var service in services)
+{
+    var allInterfaces = service.GetInterfaces();
+    var direcInterface = allInterfaces.Except(allInterfaces.SelectMany(t => t.GetInterfaces())).FirstOrDefault();
+    if (direcInterface != null)
+    {
+        builder.Services.Add(new ServiceDescriptor(direcInterface, service, ServiceLifetime.Scoped));
+    }
+}
+
+//Default config to the container
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
