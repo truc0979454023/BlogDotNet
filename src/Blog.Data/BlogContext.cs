@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog.Data
+namespace Blog.Core
 {
     public class BlogContext : IdentityDbContext<AppUser, AppRole, Guid> // Kế thừa IdentityDBContext gồm 3 tham số TUser(AppUSer lấy từ blog.core) , TRole , TKey (Kiểu dữ liệu khóa chính)
     {

@@ -1,7 +1,7 @@
 ﻿using Blog.Core.Domain.Identity;
 using Microsoft.AspNetCore.Identity;
 
-namespace Blog.Data
+namespace Blog.Core
 {
     public class DataSeeder
     {

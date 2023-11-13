@@ -1,4 +1,4 @@
-﻿using Blog.Data;
+﻿using Blog.Core;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Api

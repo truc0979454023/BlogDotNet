@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace Blog.Data
+namespace Blog.Core
 {
     public class BlogContextFactory : IDesignTimeDbContextFactory<BlogContext>
     {

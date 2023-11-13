@@ -1,8 +1,10 @@
 ﻿using Blog.Api;
 using Blog.Core.Domain.Identity;
-using Blog.Data;
+using Blog.Core;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Blog.Data.SeedWords;
+using Blog.Core.SeedWords;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -36,6 +38,9 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 // Add services to the container.
+
+builder.Services.AddScoped(typeof(IReadOnlyDictionary<,>), typeof(RepositotyBase<,>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
